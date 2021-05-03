@@ -25,6 +25,11 @@ const LanderCont = styled(Container)`
 
 const Goodies = styled(Container)`
   min-height: 800px;
+  position: relative;
+`
+
+const Instagram = styled(Container)`
+  min-height: 800px;
 `
 
 const ProductCont = styled.div`
@@ -70,7 +75,30 @@ export default function Home({ data }) {
         <ShopButton>Shop Now</ShopButton>
       </LanderCont>
       <Goodies>
-        <StaticImage src="../" />
+        <StaticImage
+          src="../assets/images/dessertRight.png"
+          alt="rightDessert"
+          style={{
+            position: "absolute",
+            right: 0,
+            top: "-10%",
+          }}
+          imgStyle={{
+            filter: "opacity(0.5)",
+          }}
+        />
+        <StaticImage
+          src="../assets/images/dessertLeft.png"
+          alt="leftDessert"
+          style={{
+            position: "absolute",
+            left: 0,
+            top: "25%",
+          }}
+          imgStyle={{
+            filter: "opacity(0.5)",
+          }}
+        />
         <Typography style={{ margin: "10vh 0 15vh" }}>
           Popular Goodies
         </Typography>
@@ -88,6 +116,19 @@ export default function Home({ data }) {
           })}
         </ProductCont>
       </Goodies>
+      <Instagram>
+        <Typography
+          style={{
+            width: "900px",
+            margin: "auto",
+            textAlign: "center",
+            paddingTop: "10vh",
+            lineHeight: "100px",
+          }}
+        >
+          Follow us @sweetbundle.ying
+        </Typography>
+      </Instagram>
     </MainLayout>
   )
 }
