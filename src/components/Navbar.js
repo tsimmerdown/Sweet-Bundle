@@ -30,14 +30,32 @@ const Cart = styled(GiShoppingCart)`
   font-size: 30px;
   flex: 1 0 auto;
 `
+const navBarItems = [
+  {
+    name: "About",
+    slug: "about",
+  },
+  {
+    name: "Menu",
+    slug: "menu",
+  },
+  {
+    name: "Order",
+    slug: "order",
+  },
+  {
+    name: "FAQ",
+    slug: "faq",
+  },
+]
 
 const Navbar = () => {
   return (
     <Cont>
       <Logo src={logo} alt="logo" />
       <NavButtonList>
-        {["About", "Menu", "Order", "FAQ"].map(s => {
-          return <NavButton name={s} key={s} />
+        {navBarItems.map(item => {
+          return <NavButton name={item.name} key={item.slug} slug={item.slug} />
         })}
       </NavButtonList>
       <Cart />

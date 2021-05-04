@@ -111,22 +111,22 @@ const Footer = () => {
             orientation="horizontal"
             style={{ marginBottom: "2vh", background: "#FFFFFF" }}
           />
-          <Link to="about" style={{ textDecoration: "none", color: "white" }}>
+          <Link to="/about" style={{ textDecoration: "none", color: "white" }}>
             <Typography variant="subtitle1" style={{ padding: "2px" }}>
               About
             </Typography>
           </Link>
-          <Link to="menu" style={{ textDecoration: "none", color: "white" }}>
+          <Link to="/menu" style={{ textDecoration: "none", color: "white" }}>
             <Typography variant="subtitle1" style={{ padding: "2px" }}>
               Menu
             </Typography>
           </Link>
-          <Link to="order" style={{ textDecoration: "none", color: "white" }}>
+          <Link to="/order" style={{ textDecoration: "none", color: "white" }}>
             <Typography variant="subtitle1" style={{ padding: "2px" }}>
               Order
             </Typography>
           </Link>
-          <Link to="faq" style={{ textDecoration: "none", color: "white" }}>
+          <Link to="/faq" style={{ textDecoration: "none", color: "white" }}>
             <Typography variant="subtitle1" style={{ padding: "2px" }}>
               FAQ
             </Typography>
