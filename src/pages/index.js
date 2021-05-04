@@ -8,6 +8,7 @@ import lander from "../assets/images/Lander.jpg"
 import ProductCard from "../components/ProductCard/ProductCard"
 import { StaticImage } from "gatsby-plugin-image"
 import { graphql } from "gatsby"
+import InstaPost from "../components/InstagramPost/InstagramPost"
 
 const LanderCont = styled(Container)`
   display: flex;
@@ -29,7 +30,7 @@ const Goodies = styled(Container)`
 `
 
 const Instagram = styled(Container)`
-  min-height: 800px;
+  margin-bottom: 10vh;
 `
 
 const ProductCont = styled.div`
@@ -57,6 +58,11 @@ const ShopButton = styled(Button)`
       color: black;
     }
   }
+`
+
+const PhotoContainer = styled.div`
+  display: flex;
+  overflow: hidden;
 `
 
 export default function Home({ data }) {
@@ -122,12 +128,17 @@ export default function Home({ data }) {
             width: "900px",
             margin: "auto",
             textAlign: "center",
-            paddingTop: "10vh",
+            padding: "10vh 0 15vh",
             lineHeight: "100px",
           }}
         >
           Follow us @sweetbundle.ying
         </Typography>
+        <PhotoContainer>
+          {data.allInstagramContent.nodes.map(post => {
+            return <InstaPost caption={post.caption} img={post.localImage} />
+          })}
+        </PhotoContainer>
       </Instagram>
     </MainLayout>
   )
@@ -147,6 +158,16 @@ export const query = graphql`
             formats: [AUTO, WEBP]
             width: 300
           )
+        }
+      }
+    }
+    allInstagramContent(limit: 5) {
+      nodes {
+        caption
+        localImage {
+          childImageSharp {
+            gatsbyImageData
+          }
         }
       }
     }
