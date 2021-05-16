@@ -5,6 +5,7 @@ import Container from "./Cont/Container"
 import { Link } from "gatsby"
 
 import logo from "../assets/images/logo-light.svg"
+import { responsive } from "../assets/responsive"
 
 //import { useMediaQuery } from "react-responsive"
 
@@ -31,8 +32,9 @@ const FooterCont = styled(Container)`
     flex-grow: 1;
   }
 
-  @media screen and (max-width: 900px) {
+  @media only screen and (max-width: ${responsive.medS}px) {
     padding: 10px 0;
+    height: auto;
     .emailCont {
       flex-direction: column;
     }
@@ -49,7 +51,7 @@ const BottomCont = styled.div`
   display: flex;
 
   .icon {
-    flex-grow: 2;
+    flex: 2 1 auto;
     padding: 3vh 0;
   }
   .pages {
@@ -58,6 +60,18 @@ const BottomCont = styled.div`
   }
   .contactUs {
     flex-grow: 1;
+  }
+
+  @media only screen and (max-width: ${responsive.medS}px) {
+    padding: 3rem 0 1rem 0;
+  }
+
+  @media only screen and (max-width: ${responsive.xsmall}px) {
+    flex-direction: column;
+    .icon {
+      margin: auto;
+      padding: 0.5rem 0;
+    }
   }
 `
 
