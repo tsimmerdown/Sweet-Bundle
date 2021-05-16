@@ -5,7 +5,7 @@ import { graphql } from "gatsby"
 import { GatsbyImage, getImage, StaticImage } from "gatsby-plugin-image"
 import MainLayout from "../templates/MainLayout"
 import { Divider } from "@material-ui/core"
-import aboutBackground from "../assets/images/aboutBackground.png"
+// import aboutBackground from "../assets/images/aboutBackground.png"
 import { responsive } from "../assets/responsive"
 
 const AboutCont = styled(Container)`

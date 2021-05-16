@@ -13,7 +13,9 @@ const ImageCarousel = ({ images }) => {
   return (
     <CarouselCont>
       {images.map(image => {
-        return <CarouselItem image={image} active={active} />
+        return (
+          <CarouselItem image={image} active={active} setActive={setActive} />
+        )
       })}
     </CarouselCont>
   )

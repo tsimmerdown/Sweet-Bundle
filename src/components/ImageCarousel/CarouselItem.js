@@ -1,7 +1,7 @@
 import { getImage, GatsbyImage } from "gatsby-plugin-image"
 import React from "react"
 
-const CarouselItem = ({ image, active }) => {
+const CarouselItem = ({ image, active, setActive }) => {
   const img = getImage(image)
 
   return (

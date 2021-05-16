@@ -7,7 +7,7 @@ import lander from "../assets/images/Lander.jpg"
 
 import ProductCard from "../components/ProductCard/ProductCard"
 import { StaticImage } from "gatsby-plugin-image"
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
 import InstaPost from "../components/InstagramPost/InstagramPost"
 import { responsive } from "../assets/responsive"
 
@@ -91,6 +91,7 @@ const ShopButton = styled(Button)`
     background-color: #f17c98;
     color: white;
     font-size: 24px;
+    text-decoration: none;
     &:hover {
       color: black;
     }
@@ -156,7 +157,14 @@ export default function Home({ data }) {
         >
           A bundle of joy <br /> for every occasion
         </Typography>
-        <ShopButton>Shop Now</ShopButton>
+        <Link
+          to="/menu"
+          style={{
+            textDecoration: "none",
+          }}
+        >
+          <ShopButton>Shop Now</ShopButton>
+        </Link>
       </LanderCont>
       <Goodies>
         <DessertRightCont>
