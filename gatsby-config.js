@@ -11,7 +11,7 @@ module.exports = {
       resolve: `gatsby-source-contentful`,
       options: {
         spaceId: `4dsl52evmms9`,
-        accessToken: process.env.CONTENTFUL_API_TOKEN,
+        accessToken: process.env.GATSBY_CONTENTFUL_API_TOKEN,
       },
     },
     `gatsby-transformer-sharp`,
@@ -29,7 +29,7 @@ module.exports = {
     {
       resolve: `gatsby-source-instagram-all`,
       options: {
-        access_token: process.env.INSTAGRAM_API_TOKEN,
+        access_token: process.env.GATSBY_INSTAGRAM_API_TOKEN,
       },
     },
   ],
