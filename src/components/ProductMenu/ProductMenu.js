@@ -9,6 +9,7 @@ import {
 } from "@material-ui/core"
 import React, { useState, useEffect } from "react"
 import styled from "styled-components"
+import { responsive } from "../../assets/responsive"
 
 const SelectMenuCont = styled.div`
   position: ${props => (props.threshold ? "absolute" : "fixed")};
@@ -16,22 +17,56 @@ const SelectMenuCont = styled.div`
   width: 540px;
   background-color: #e9e8dd;
   top: ${props => (props.threshold ? "600px" : "100px")};
-  right: 180px;
+  right: 100px;
   border-radius: 10px;
   border: 1px solid black;
   box-shadow: 5px 5px 8px grey;
+  @media only screen and (max-width: ${responsive.large}px) {
+    width: 480px;
+  }
+  @media only screen and (max-width: ${responsive.medL}px) {
+    width: 400px;
+  }
+  @media only screen and (max-width: ${responsive.medS}px) {
+    position: relative;
+    left: 50%;
+    top: 0;
+    transform: translate(-50%, 0);
+    margin-bottom: 80px;
+  }
+  @media only screen and (max-width: ${responsive.tiny}px) {
+    width: 300px;
+    height: 400px;
+  }
 `
 const Typography = styled.p`
-  white-space: no-wrap;
   width: 100%;
   position: absolute;
   font-size: ${props => (props.small ? "15px" : "30px")};
   font-weight: ${props => (props.small ? "400" : "500")};
+
+  @media only screen and (max-width: ${responsive.small}px) {
+    margin-bottom: ${props => (props.small ? "16px" : "24px")};
+    font-size: ${props => (props.small ? "14px" : "24px")};
+    font-weight: ${props => (props.small ? "400" : "500")};
+  }
+
+  @media only screen and (max-width: ${responsive.tiny}px) {
+    margin-bottom: ${props => (props.small ? "8px" : "16px")};
+    font-size: ${props => (props.small ? "12px" : "24px")};
+    font-weight: ${props => (props.small ? "400" : "500")};
+  }
 `
 const PriceCont = styled.div`
   display: flex;
   height: 55px;
   margin: 40% 16px 0 16px;
+  @media only screen and (max-width: ${responsive.large}px) {
+    margin-top: 50%;
+  }
+  @media only screen and (max-width: ${responsive.medL}px) {
+    margin-top: 60%;
+  }
 `
 
 const PriceOption = styled.div`
@@ -41,6 +76,9 @@ const PriceOption = styled.div`
   justify-content: center;
   align-items: center;
   background-color: ${props => (props.active ? "#c4c4c4" : "transparent")};
+  @media only screen and (max-width: ${responsive.tiny}px) {
+    font-size: ${props => (props.small ? "12px" : "24px")};
+  }
 `
 const FlavourSelect = styled.div`
   display: flex;
@@ -53,7 +91,6 @@ const Additions = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  margin-top: 2em;
 `
 const ButtonCont = styled.div`
   display: flex;
@@ -131,9 +168,10 @@ const ProductMenu = ({ name, options }) => {
                 setTotal(option.price)
                 setActiveOption(option.id)
               }}
-            >{`${option.amount || ""} ${option.type} - $${
-              option.price
-            }`}</PriceOption>
+              small
+            >
+              {`${option.amount || ""} ${option.type} - $${option.price}`}
+            </PriceOption>
           )
         })}
       </PriceCont>

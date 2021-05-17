@@ -33,6 +33,9 @@ const Typography = styled.p`
   @media only screen and (max-width: ${responsive.tiny}px) {
     font-size: ${props => (props.small ? "15px" : "24px")};
   }
+  @media only screen and (max-width: ${responsive.tiny}px) {
+    font-size: ${props => (props.small ? "15px" : "24px")};
+  }
 `
 
 const ProductCard = ({ className, name, startingPrice, slug, img, color }) => {

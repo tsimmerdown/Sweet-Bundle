@@ -68,7 +68,7 @@ const Typography = styled.p`
     font-weight: ${props => (props.small ? "400" : "600")};
   }
 
-  @media only screen and (max-width: ${responsive.small}px) {
+  @media only screen and (max-width: ${responsive.medS}px) {
     margin-bottom: ${props => (props.small ? "16px" : "24px")};
     font-size: ${props => (props.small ? "14px" : "48px")};
     font-weight: ${props => (props.small ? "400" : "600")};

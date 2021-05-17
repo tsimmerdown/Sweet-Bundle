@@ -28,7 +28,10 @@ const InstaPost = ({ caption, img }) => {
   const image = getImage(img)
 
   const aniProps = useSpring({
-    y: hover ? "0" : "100px",
+    leave: {
+      y: "100px",
+    },
+    y: hover ? "0px" : "100px",
     config: config.stiff,
   })
 

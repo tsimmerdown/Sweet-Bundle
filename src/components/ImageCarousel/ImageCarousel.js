@@ -3,7 +3,6 @@ import styled from "styled-components"
 import CarouselItem from "./CarouselItem"
 
 const CarouselCont = styled.div`
-  height: 50vh;
   display: flex;
 `
 
