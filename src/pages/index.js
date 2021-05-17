@@ -171,6 +171,7 @@ export default function Home({ data }) {
           <StaticImage
             src="../assets/images/dessertRight.png"
             alt="rightDessert"
+            placeholder="BLURRED"
             imgStyle={{
               filter: "opacity(0.5)",
             }}

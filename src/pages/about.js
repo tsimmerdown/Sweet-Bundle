@@ -105,6 +105,7 @@ const About = ({ data }) => {
           <YingBackground>
             <StaticImage
               src="../assets/images/yingBackground.png"
+              placeholder="BLURRED"
               alt="background"
               quality={95}
               width={480}
@@ -117,6 +118,7 @@ const About = ({ data }) => {
           <YingBackground>
             <StaticImage
               src="../assets/images/ying.png"
+              placeholder="BLURRED"
               quality={95}
               alt="ying"
               width={560}
@@ -145,11 +147,11 @@ export const query = graphql`
   {
     contentfulAboutPage {
       topBanner {
-        gatsbyImageData
+        gatsbyImageData(placeholder: BLURRED, formats: [AUTO, WEBP])
         title
       }
       ying {
-        gatsbyImageData
+        gatsbyImageData(placeholder: BLURRED, formats: [AUTO, WEBP])
         title
       }
       aboutText {
