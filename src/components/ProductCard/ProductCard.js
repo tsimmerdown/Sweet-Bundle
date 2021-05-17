@@ -10,7 +10,7 @@ const CardCont = styled.div`
   border-radius: 10px;
   position: relative;
   background: ${props => props.color || "black"};
-  margin: 0 20px;
+  margin: 8em 1em 0;
   color: black;
 
   @media only screen and (max-width: ${responsive.large}px) {
