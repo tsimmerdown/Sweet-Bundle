@@ -15,7 +15,6 @@
   },
   "dependencies": {
     "@material-ui/core": "^4.11.3",
-    "framer-motion": "^4.1.11",
     "gatsby": "^3.3.1",
     "gatsby-plugin-google-fonts": "^1.0.1",
     "gatsby-plugin-image": "^1.4.0",
@@ -30,6 +29,7 @@
     "react-dom": "^17.0.1",
     "react-icons": "^4.2.0",
     "react-responsive": "^8.2.0",
+    "react-spring": "^9.1.2",
     "styled-components": "^5.2.3"
   },
   "devDependencies": {

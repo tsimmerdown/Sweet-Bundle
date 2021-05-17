@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import styled from "styled-components"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
-import { motion } from "framer-motion"
+import { useSpring, animated, config } from "react-spring"
 import { responsive } from "../../assets/responsive"
 
 const InstaCont = styled.div`
@@ -14,7 +14,7 @@ const InstaCont = styled.div`
     margin: 1em;
   }
 `
-const HoverText = styled(motion.p)`
+const HoverText = styled(animated.p)`
   position: absolute;
   bottom: -100px;
   background: rgba(255, 255, 255, 0.6);
@@ -26,6 +26,11 @@ const HoverText = styled(motion.p)`
 const InstaPost = ({ caption, img }) => {
   const [hover, setHover] = useState(false)
   const image = getImage(img)
+
+  const aniProps = useSpring({
+    y: hover ? "0" : "100px",
+    config: config.stiff,
+  })
 
   return (
     <InstaCont
@@ -41,22 +46,7 @@ const InstaPost = ({ caption, img }) => {
         onMouseEnter={() => setHover(true)}
         onMouseLeave={() => setHover(false)}
       />
-      {hover && (
-        <HoverText
-          initial={{
-            y: "100px",
-          }}
-          animate={{
-            y: 0,
-          }}
-          transition={{
-            ease: "linear",
-            duration: 0.2,
-          }}
-        >
-          {caption}
-        </HoverText>
-      )}
+      {hover && <HoverText style={aniProps}>{caption}</HoverText>}
     </InstaCont>
   )
 }
