@@ -13,7 +13,6 @@ import { responsive } from "../../assets/responsive"
 
 const SelectMenuCont = styled.div`
   position: ${props => (props.threshold ? "absolute" : "fixed")};
-  height: 560px;
   width: 540px;
   background-color: #e9e8dd;
   top: ${props => (props.threshold ? "600px" : "100px")};
@@ -21,6 +20,7 @@ const SelectMenuCont = styled.div`
   border-radius: 10px;
   border: 1px solid black;
   box-shadow: 5px 5px 8px grey;
+  padding-bottom: 7em;
   @media only screen and (max-width: ${responsive.large}px) {
     width: 480px;
   }
@@ -36,7 +36,6 @@ const SelectMenuCont = styled.div`
   }
   @media only screen and (max-width: ${responsive.tiny}px) {
     width: 300px;
-    height: 400px;
   }
 `
 const Typography = styled.p`
