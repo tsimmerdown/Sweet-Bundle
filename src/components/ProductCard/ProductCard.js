@@ -30,11 +30,9 @@ const Typography = styled.p`
   font-size: ${props => (props.small ? "15px" : "30px")};
   font-weight: ${props => (props.small ? "400" : "500")};
   color: black;
+
   @media only screen and (max-width: ${responsive.tiny}px) {
-    font-size: ${props => (props.small ? "15px" : "24px")};
-  }
-  @media only screen and (max-width: ${responsive.tiny}px) {
-    font-size: ${props => (props.small ? "15px" : "24px")};
+    font-size: ${props => (props.small ? "12px" : "24px")};
   }
 `
 

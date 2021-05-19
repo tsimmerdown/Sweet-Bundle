@@ -54,6 +54,7 @@ const Typography = styled.p`
     margin-bottom: ${props => (props.small ? "8px" : "16px")};
     font-size: ${props => (props.small ? "12px" : "24px")};
     font-weight: ${props => (props.small ? "400" : "500")};
+    word-break: break-word;
   }
 `
 const PriceCont = styled.div`
@@ -64,7 +65,7 @@ const PriceCont = styled.div`
     margin-top: 50%;
   }
   @media only screen and (max-width: ${responsive.medL}px) {
-    margin-top: 60%;
+    margin-top: 15em;
   }
 `
 
@@ -90,6 +91,7 @@ const Additions = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  margin-top: 2em;
 `
 const ButtonCont = styled.div`
   display: flex;
@@ -105,6 +107,18 @@ const AddButton = styled(Button)`
     background-color: #40434a;
     color: white;
     width: 50%;
+  }
+`
+const AdditionText = styled(ListItemText)`
+  @media only screen and (max-width: ${responsive.tiny}px) {
+    font-size: 0.75em;
+  }
+`
+const ListIcon = styled(ListItemIcon)`
+  @media only screen and (max-width: ${responsive.tiny}px) {
+    && {
+      min-width: initial;
+    }
   }
 `
 
@@ -214,7 +228,7 @@ const ProductMenu = ({ name, options }) => {
                   onClick={handleToggle(option)}
                   style={{ width: "50%" }}
                 >
-                  <ListItemIcon>
+                  <ListIcon>
                     <Checkbox
                       edge="start"
                       checked={checked.indexOf(option.name) !== -1}
@@ -222,8 +236,9 @@ const ProductMenu = ({ name, options }) => {
                       disableRipple
                       inputProps={{ "aria-labelledby": option.name }}
                     />
-                  </ListItemIcon>
-                  <ListItemText
+                  </ListIcon>
+                  <AdditionText
+                    disableTypography
                     id={option.name}
                     primary={`${option.name} - $${option.price}`}
                   />

@@ -4,6 +4,7 @@ import CarouselItem from "./CarouselItem"
 
 const CarouselCont = styled.div`
   display: flex;
+  overflow: hidden;
 `
 
 const ImageCarousel = ({ images }) => {
