@@ -7,9 +7,10 @@ import {
   ListItemText,
   NativeSelect,
 } from "@material-ui/core"
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, useContext } from "react"
 import styled from "styled-components"
 import { responsive } from "../../assets/responsive"
+import { CartContext } from "../../context/cartContext"
 
 const SelectMenuCont = styled.div`
   position: ${props => (props.threshold ? "absolute" : "fixed")};
@@ -123,6 +124,8 @@ const ListIcon = styled(ListItemIcon)`
 `
 
 const ProductMenu = ({ name, options }) => {
+  const { addToCart } = useContext(CartContext)
+
   const [total, setTotal] = useState(0)
   const [threshold, setThreshold] = useState(false)
   const [activeOption, setActiveOption] = useState()
@@ -143,6 +146,14 @@ const ProductMenu = ({ name, options }) => {
 
     setChecked(newChecked)
   }
+
+const handleCheckout = () =>{
+
+  addToCart({
+    //id
+    name: 
+  })
+}
 
   useEffect(() => {
     const scrollHandler = e => {
@@ -249,7 +260,7 @@ const ProductMenu = ({ name, options }) => {
         </Additions>
       )}
       <ButtonCont>
-        <AddButton>Add to Cart - ${total}</AddButton>
+        <AddButton onClick>Add to Cart - ${total}</AddButton>
       </ButtonCont>
     </SelectMenuCont>
   )

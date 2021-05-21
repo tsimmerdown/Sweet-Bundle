@@ -7,10 +7,9 @@ const CartProvider = ({ children }) => {
 
   const addToCart = item => {
     const newItem = {
-      id: Math.random(),
+      id: item.priceID,
       title: item.title,
       description: item.desc,
-      price: item.priceID,
     }
 
     setCart([...cart, newItem])
