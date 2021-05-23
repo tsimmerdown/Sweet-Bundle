@@ -9,9 +9,6 @@ const Image = styled.div`
     min-width: calc(100% / 3);
   }
   @media only screen and (max-width: ${responsive.tiny}px) {
-    min-width: calc(100% / 2);
-  }
-  @media only screen and (max-width: 350px) {
     min-width: 100%;
   }
 `

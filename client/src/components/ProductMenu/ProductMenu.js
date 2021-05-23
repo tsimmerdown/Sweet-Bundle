@@ -147,13 +147,11 @@ const ProductMenu = ({ name, options }) => {
     setChecked(newChecked)
   }
 
-const handleCheckout = () =>{
-
-  addToCart({
-    //id
-    name: 
-  })
-}
+  const handleCheckout = () => {
+    addToCart({
+      id: activeOption,
+    })
+  }
 
   useEffect(() => {
     const scrollHandler = e => {
@@ -259,8 +257,8 @@ const handleCheckout = () =>{
           </div>
         </Additions>
       )}
-      <ButtonCont>
-        <AddButton onClick>Add to Cart - ${total}</AddButton>
+      <ButtonCont onClick={handleCheckout}>
+        <AddButton>Add to Cart - ${total}</AddButton>
       </ButtonCont>
     </SelectMenuCont>
   )

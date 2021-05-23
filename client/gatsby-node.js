@@ -61,7 +61,7 @@ exports.createPages = async ({ graphql, actions }) => {
     }
   `)
 
-  result.data.allContentfulGoodies.edges.forEach(({ node }) => {
+  result.data?.allContentfulGoodies.edges.forEach(({ node }) => {
     createPage({
       path: `/goodies/${node.slug}`,
       component: path.resolve(`./src/templates/ProductTemplate.js`),

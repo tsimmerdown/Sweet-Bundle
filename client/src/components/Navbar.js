@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useContext } from "react"
 import styled from "styled-components"
 import { GiShoppingCart } from "react-icons/gi"
 import NavButton from "../components/NavButton/NavButton"
@@ -10,6 +10,9 @@ import { responsive } from "../assets/responsive"
 import { GiHamburgerMenu } from "react-icons/gi"
 import { GrClose } from "react-icons/gr"
 import { Drawer } from "@material-ui/core"
+import { CartContext } from "../context/cartContext"
+import { createSession } from "../api/index"
+import { loadStripe } from "@stripe/stripe-js"
 
 const Cont = styled(Container)`
   display: flex;
@@ -104,6 +107,18 @@ const Close = styled(GrClose)`
     color: red;
   }
 `
+const CartNum = styled.div`
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  background: #40434a;
+  position: absolute;
+  right: -0.5em;
+  top: -0.5em;
+  color: white;
+  text-align: center;
+`
+
 const navBarItems = [
   {
     name: "About",
@@ -119,8 +134,32 @@ const navBarItems = [
   },
 ]
 
+const stripePromise = loadStripe(
+  "pk_test_51IsX2dFEzvTEaCftCEpTIpc6lJPcgYlCNh10brd3ptCS0PWaxxSv7WRUB9dFAYmqF1nUn1TNgInDIopuMAa9HIV600Q0tbV5ME"
+)
+
 const Navbar = () => {
   const [openDrawer, setOpenDrawer] = useState(false)
+
+  const { cart } = useContext(CartContext)
+
+  const handleCreateCheckout = async event => {
+    if (cart.length > 0) {
+      const stripe = await stripePromise
+
+      const response = await createSession(cart)
+
+      const session = await response.data
+
+      const result = await stripe.redirectToCheckout({
+        sessionId: session.id,
+      })
+
+      if (result.error) {
+        console.log(result.error.message)
+      }
+    }
+  }
 
   const handleDrawerOpen = () => {
     setOpenDrawer(!openDrawer)
@@ -156,8 +195,14 @@ const Navbar = () => {
           return <NavButton name={item.name} key={item.slug} slug={item.slug} />
         })}
       </NavButtonList>
-
-      <Cart />
+      <div
+        style={{
+          position: "relative",
+        }}
+      >
+        {cart.length > 0 && <CartNum>{cart.length}</CartNum>}
+        <Cart onClick={handleCreateCheckout} />
+      </div>
     </Cont>
   )
 }

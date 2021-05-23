@@ -6,13 +6,24 @@ const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([])
 
   const addToCart = item => {
-    const newItem = {
-      id: item.priceID,
-      title: item.title,
-      description: item.desc,
-    }
+    var currItem = cart.find(x => x.id === item.id)
 
-    setCart([...cart, newItem])
+    if (currItem) {
+      currItem.quantity += 1
+    } else {
+      setCart([
+        ...cart,
+        {
+          price: item.id,
+          quantity: 1,
+          adjustable_quantity: {
+            enabled: true,
+            minimum: 1,
+            maximum: 10,
+          },
+        },
+      ])
+    }
   }
 
   return (
@@ -22,4 +33,4 @@ const CartProvider = ({ children }) => {
   )
 }
 
-export default CartProvider
+export default ({ element }) => <CartProvider>{element}</CartProvider>
