@@ -6,4 +6,4 @@ const router = express.Router();
 
 router.post("/create-checkout-session", createCheckout);
 
-export default router;
+module.exports = router;
