@@ -188,6 +188,7 @@ const ProductMenu = ({ name, options }) => {
               key={option.id}
               onClick={() => {
                 setTotal(option.price)
+                setChecked([0])
                 setActiveOption(option.id)
               }}
               small

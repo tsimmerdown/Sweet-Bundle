@@ -6,8 +6,7 @@ const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([])
 
   const addToCart = item => {
-    var currItem = cart.find(x => x.id === item.id)
-
+    var currItem = cart.find(x => x.price === item.id)
     if (currItem) {
       currItem.quantity += 1
     } else {
