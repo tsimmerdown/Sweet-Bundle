@@ -4,7 +4,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-  <a href="https://github.com/othneildrew/Best-README-Template">
+  <a href="https://sweet-bundle.netlify.app">
     <img src="./client/src/assets/images/Logo.png" alt="Logo" width="175" height="150">
   </a>
 
