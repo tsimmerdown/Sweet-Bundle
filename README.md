@@ -36,6 +36,8 @@
 - [Gatsby.js](https://www.gatsbyjs.com/)
 - [React](https://reactjs.org/)
 - [Express.js](https://expressjs.com/)
+- [Contentful](https://www.contentful.com/)
+- [Stripe](https://stripe.com/docs)
 
 <!-- LICENSE -->
 
